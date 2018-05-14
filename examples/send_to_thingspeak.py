@@ -1,4 +1,6 @@
-""" 
+#!/usr/bin/python
+
+"""
 temp.py 
 Temperature/Humidity monitor using Raspberry Pi and DHT22.
 Data is displayed at https://thingspeak.com/channels/324453/
@@ -18,9 +20,10 @@ pin = 22
 def read_dht_sensor():
     hum = None
     temp = None
-    for i in range(2):
+    for i in range(3):
         # just take second result
         hum, temp = Adafruit_DHT.read_retry(Adafruit_DHT.DHT22, pin)
+        print("{})t={} *C, h={} %".format(str(i), temp, hum))
     return round(hum, 1), round(temp, 1)
 
 
